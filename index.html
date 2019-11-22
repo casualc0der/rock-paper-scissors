@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+
+<body>
+
+ <h1>Rock, Paper, Scissor in the console! :)  </h1>
+
+  <script> 
+  
+    //generate a random number
+  function random() {
+
+    return Math.floor(Math.random() * 3);
+  }
+
+    //assign cpu choice, based on the random number
+
+  function computerPlay(choice) {
+      
+      switch(choice) {
+          case 0:
+          return "rock"
+          break;
+
+          case 1:
+          return "paper"
+          break;
+
+          case 2:
+          return "scissor"
+          break;
+      }
+
+  }
+
+  
+
+// for(var i = 0; i < 100; i++) {
+//     console.log(computerPlay(random()));
+// }
+
+
+
+function playerSelection() {
+    let answer = prompt("Rock, Paper, Scissor?"); //ask the player for their selection
+
+    let choice = answer.toLowerCase(); // change answer to lowercase to standardise the answer
+    
+    //if the string entered is not recognise, re-ask the question.
+    if (choice !== "rock" && choice !== "paper" && choice !== "scissor" ) {
+        alert("Enter Rock, Paper or Scissor or press cancel")
+        playerSelection()
+    }
+    else {
+        return choice; }
+    
+}
+
+//calculate result of player vs cpu 
+function round (playerSelection, computerSelection) {
+
+    //rock
+    if (playerSelection === "rock" && computerSelection === "paper") {
+        return "pc"
+    }
+    else if (playerSelection === "rock" && computerSelection === "rock") {
+        return "draw"
+    }
+    //paper
+    else if (playerSelection === "paper" && computerSelection === "rock") {
+        return "pc"
+    }
+    else if (playerSelection === "paper" && computerSelection === "paper") {
+        return "draw"
+    }
+    //scissor
+    else if (playerSelection === "scissor" && computerSelection === "paper") {
+        return "pc"
+    }
+    else if (playerSelection === "scissor" && computerSelection === "scissor") {
+        return "draw"
+    }
+    else {
+        return "npc"
+    }
+
+}
+
+
+
+function game () {
+    var raw_rounds = prompt("how many rounds would you like to play?") //number of rounds
+    var rounds = Number(raw_rounds);
+    var player_score = 0;
+    var computer_score = 0;
+    
+
+    for (var i = 0; i < rounds; i++) {
+
+        var result = round(playerSelection(),computerPlay(random()))
+
+        if(result === "pc") {
+        console.log("1 point to gryffindor")
+        ++player_score;
+        }
+        else if(result === "npc") {
+        console.log("1 point to slytherin")
+        ++computer_score;
+        }
+        else { console.log("draw!")}
+        }
+
+        if(player_score > computer_score) {
+            return console.log("YOU WIN!")
+        }
+        else if(player_score < computer_score) {
+            return console.log("YOU LOSE")
+        }
+        else { return console.log(" ITS A DRAW!")}
+}
+
+game();
+
+
+
+
+  </script>
+</body>
+
+</html>
