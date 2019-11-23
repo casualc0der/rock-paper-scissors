@@ -1,10 +1,10 @@
+var rounds = prompt("first to?");
 
-    
-      function computerPlay() {
+function computerPlay() {
 
-        function random() {
+    function random() {
 
-            return Math.floor(Math.random() * 3);
+         return Math.floor(Math.random() * 3);
           }
           switch(random()) {
               case 0:
@@ -22,43 +22,110 @@
     
       }
     
+    var playerScore = 0;
+    var npcScore = 0;
+    var btn = document.querySelectorAll(".btn");
 
+    function playerLog(score) {
 
-window.addEventListener('click', function(e) {
+        return console.log("Player Score is " + score)
 
-    var selection = document.querySelector(`button[id="${e.target.id}"]`)
-    var key = document.querySelector(`.btn[id="${e.target.id}"]`)
-    if(!selection) return;
-    selection = e.target.id;
-    console.log(selection);
+    }
+
+    function pcWinCondition (score) {
+        if(score >= rounds) {
+            pcwinner.textContent = "WINNER";
+            playerScore = 0;
+            npcScore = 0;
+            pcresults.textContent = playerScore;
+            npcresults.textContent = npcScore;
+    }
+        else if(score < rounds) {
+            pcwinner.textContent = "";
+        }
+    }
+
+    function npcWinCondition (score) {
+        if(score >= rounds) {
+            npcwinner.textContent = "WINNER";
+            npcScore = 0;
+            playerScore = 0;
+            pcresults.textContent = playerScore;
+            npcresults.textContent = npcScore;
     
-
-    if (selection === "rock" && computerPlay() ==="paper") {
-        return console.log("pc");
-    }
-    else if (selection === "rock" && computerPlay() === "rock") {
-        return console.log("draw");
-    }
-    //paper
-    else if (selection === "paper" && computerPlay() === "rock") {
-        return console.log("pc");
-    }
-    else if (selection === "paper" && computerPlay() === "paper") {
-        return console.log("draw");
-    }
-    //scissor
-    else if (selection === "scissor" && computerPlay() === "paper") {
-        return console.log("pc");
-    }
-    else if (selection === "scissor" && computerPlay() === "scissor") {
-        return console.log("draw");
-    }
-    else {
-        return console.log("npc");
+            
+        }
+        else if(score < rounds) {
+            npcwinner.textContent = "";
+        }
     }
 
+    btn.forEach((button) => {
+        button.addEventListener('click', (e) => {
+
+            if (e.target.id === "rock" && computerPlay() ==="paper") {
+                ++playerScore
+                pcresults.textContent = playerScore;
+                pcWinCondition(playerScore);
+                npcWinCondition(npcScore);
+                return (playerLog(playerScore)); 
+             }
+             else if (e.target.id === "rock" && computerPlay() === "rock") {
+                pcWinCondition(playerScore);
+                npcWinCondition(npcScore);
+                return console.log("draw");
+         }
+           
+             else if (e.target.id === "paper" && computerPlay() === "rock") {
+                ++playerScore;
+                pcresults.textContent = playerScore;
+                pcWinCondition(playerScore);
+                npcWinCondition(npcScore);
+                return (playerLog(playerScore)); 
+             }
+             else if (e.target.id === "paper" && computerPlay() === "paper") {
+                pcWinCondition(playerScore);
+                npcWinCondition(npcScore);
+                 return console.log("draw");
+             }
+           
+            else if (e.target.id === "scissor" && computerPlay() === "paper") {
+                ++playerScore;
+                pcresults.textContent = playerScore;
+                pcWinCondition(playerScore);
+                npcWinCondition(npcScore);
+                return (playerLog(playerScore)); 
+            }
+             else if (e.target.id === "scissor" && computerPlay() === "scissor") {
+                pcWinCondition(playerScore);
+                npcWinCondition(npcScore);
+                return console.log("draw");
+            }
+            else {
+                ++npcScore;
+                npcresults.textContent = npcScore;
+                npcWinCondition(npcScore);
+
+               return console.log("CPU score " + npcScore);
+            }
 
 
-    })
+        })});
+
+        const pcresults = document.querySelector('.pcresults');
+        const npcresults = document.querySelector('.npcresults');
+        const pcwinner = document.querySelector('.pcwinner');
+        const npcwinner = document.querySelector('.npcwinner');
+
+        
+    
+        pcresults.textContent = playerScore;
+        npcresults.textContent = npcScore;
+
+
+
+
+
+    
 
  
