@@ -4,23 +4,47 @@
 <head>
   <meta charset="utf-8">
   <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alatsi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
   <title>Rock, Paper, Scissor</title>
-    
+  
 </head>
 
 <body>
+<div class="wchamp">
+    
+ <h1 class="bob">Rock, Paper, Scissor World Championship  </h1>
+ <h2> First to five wins! </h2>
+</div>
 
- <h1 class="bob">Rock, Paper, Scissor in the console! :)  </h1>
+<div class="buttons">
+ <button class="btn" id="rock"></button>
+ <button class="btn" id="paper"></button>
+ <button class="btn" id="scissor"></button>
+ <div class="draw"></div>
+</div>
 
+<div class="container">
+<div class="playa">
 
- <button class="btn" id="rock">ROCK</button>
- <button class="btn" id="paper">PAPER</button>
- <button class="btn" id="scissor">SCISSOR</button>
-
+<div class="icons"><img class="user" src="icons/user.png"></div>
  <div class="pcresults"> </div>
- <div class="npcresults"> </div>
  <div class="pcwinner"></div>
+</div>
+
+<div class="robot">
+    <div class="speech">
+        <div class="robochoice"></div>
+       </div>
+<div class="icons"><img class="user" src="icons/cpu.png"></div>
+ <div class="npcresults"> 
+ </div>
  <div class ="npcwinner"></div>
+
+
+</div>
+</div>
+
 
   <script src="script.js"> 
   

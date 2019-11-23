@@ -1,4 +1,4 @@
-var rounds = prompt("first to?");
+
 
 function computerPlay() {
 
@@ -21,37 +21,47 @@ function computerPlay() {
           }
     
       }
+
+
     
     var playerScore = 0;
     var npcScore = 0;
     var btn = document.querySelectorAll(".btn");
+   
 
-    function playerLog(score) {
-
-        return console.log("Player Score is " + score)
-
-    }
 
     function pcWinCondition (score) {
-        if(score >= rounds) {
-            pcwinner.textContent = "WINNER";
-            playerScore = 0;
+        if(score === rounds) {
+            
+            pcwinner.textContent = "YOU WIN";
             npcScore = 0;
+            playerScore = 0; 
             pcresults.textContent = playerScore;
             npcresults.textContent = npcScore;
+           
+    
     }
         else if(score < rounds) {
             pcwinner.textContent = "";
         }
     }
 
+    function drawFlash() {
+
+
+        draw.textContent = "Draw, pick again!";
+
+
+    }
     function npcWinCondition (score) {
-        if(score >= rounds) {
-            npcwinner.textContent = "WINNER";
+        if(score === rounds) {
+            npcwinner.textContent = "CPU WINS";
             npcScore = 0;
             playerScore = 0;
             pcresults.textContent = playerScore;
             npcresults.textContent = npcScore;
+            robochoice.textContent = "YESSSSS!"
+
     
             
         }
@@ -63,30 +73,50 @@ function computerPlay() {
     btn.forEach((button) => {
         button.addEventListener('click', (e) => {
 
-            if (e.target.id === "rock" && computerPlay() ==="paper") {
+
+
+            if(draw.textContent === "Draw, pick again!") {
+                draw.textContent = "";
+            }
+
+
+
+            if (e.target.id === "rock" && computerPlay() ==="scissor") {
                 ++playerScore
                 pcresults.textContent = playerScore;
                 pcWinCondition(playerScore);
                 npcWinCondition(npcScore);
-                return (playerLog(playerScore)); 
+                robochoice.textContent = "scissor!"
+                
+                
+               
              }
              else if (e.target.id === "rock" && computerPlay() === "rock") {
                 pcWinCondition(playerScore);
                 npcWinCondition(npcScore);
-                return console.log("draw");
+                robochoice.textContent = "rock!"              
+                drawFlash()
+                
          }
+
+         
            
              else if (e.target.id === "paper" && computerPlay() === "rock") {
                 ++playerScore;
                 pcresults.textContent = playerScore;
                 pcWinCondition(playerScore);
                 npcWinCondition(npcScore);
-                return (playerLog(playerScore)); 
+                robochoice.textContent = "rock!"
+                
+                
              }
              else if (e.target.id === "paper" && computerPlay() === "paper") {
                 pcWinCondition(playerScore);
                 npcWinCondition(npcScore);
-                 return console.log("draw");
+                robochoice.textContent = "paper!"
+                drawFlash()
+                
+                
              }
            
             else if (e.target.id === "scissor" && computerPlay() === "paper") {
@@ -94,19 +124,37 @@ function computerPlay() {
                 pcresults.textContent = playerScore;
                 pcWinCondition(playerScore);
                 npcWinCondition(npcScore);
-                return (playerLog(playerScore)); 
+                robochoice.textContent = "paper!"
+                
+                
             }
              else if (e.target.id === "scissor" && computerPlay() === "scissor") {
                 pcWinCondition(playerScore);
                 npcWinCondition(npcScore);
-                return console.log("draw");
+                drawFlash()
+                robochoice.textContent = "scissor!"
+                
+                
             }
+
             else {
                 ++npcScore;
                 npcresults.textContent = npcScore;
+                pcWinCondition(playerScore);
                 npcWinCondition(npcScore);
+                if(e.target.id === "rock") {
+                    robochoice.textContent = "paper!";
+                }
+                else if(e.target.id === "paper") {
+                    robochoice.textContent = "scissor!";
+                }
+                else if(e.target.id === "scissor") {
+                    robochoice.textContent = "rock!";
+                }
+                
+                
 
-               return console.log("CPU score " + npcScore);
+              
             }
 
 
@@ -114,15 +162,28 @@ function computerPlay() {
 
         const pcresults = document.querySelector('.pcresults');
         const npcresults = document.querySelector('.npcresults');
+        const draw = document.querySelector('.draw');
         const pcwinner = document.querySelector('.pcwinner');
         const npcwinner = document.querySelector('.npcwinner');
+        const robochoice = document.querySelector('.robochoice');
+        
+
+
+
+  
+
+
+
 
         
     
         pcresults.textContent = playerScore;
         npcresults.textContent = npcScore;
+        
+        
+        
 
-
+        var rounds = 5;
 
 
 

@@ -1,11 +1,145 @@
-button {
-
-    height: 100px;
-    width: 100px;
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
 }
 
-.results {
+h2 {
 
-    width: 100%;
+    text-align: center;
+}
+button {
+   
+    height: 120px;
+    width: 120px;
+    margin: 0px;
+    /* background-color: cornsilk; */
+    /* box-shadow: darkgrey; */
+    outline: none;
+    
+}
+
+#rock {
+
+    background-image: url('icons/rock.png');
+    background-repeat: no-repeat;
+    
+
+    
+}
+
+#paper {
+
+    background-image: url('icons/paper.png');
+    background-repeat: no-repeat;
+
+
+}
+
+#scissor {
+
+    background-image: url('icons/scissor.png');
+    background-repeat: no-repeat;
+
+
+}
+
+.playa {
+
     height: auto;
+    width: 400px;
+}
+
+.icons {
+
+    float: left;
+    padding: 13px;
+
+}
+
+.user {
+
+    height: 50px;
+    width: 50px;
+}
+
+.heartBeat {
+
+    animation-delay: 0ms;
+}
+
+
+
+
+.buttons {
+    padding-left: 100px;
+}
+
+
+
+
+.pcresults, .npcresults {
+    
+    width: 330px;
+    height: auto;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    justify-content: center;  
+    text-align: center;
+    margin-left: 100px; 
+    font-size: 3em;
+
+}
+
+.pcwinner, .npcwinner {
+
+    
+    width: 330px;
+    height: 50px;
+    justify-content: center;  
+    text-align: center;
+    margin-left: 100px; 
+    font-size: 30px;
+}
+
+.draw {
+
+    width: 330px;
+    height: 50px;
+    justify-content: center;  
+    text-align: center;
+    
+    font-size: 30px;
+
+}
+
+.container {
+
+    width: 600px;
+}
+.speech {
+   
+
+    background-image: url("icons/speech.png");
+    height: 100px;
+    width: 100px;
+    align-content: center;
+    margin-left: 50px;
+    
+}
+
+.robochoice {
+    padding-top: 30px;
+    padding-left: 25px;
+
+}
+
+
+
+h1, div {
+
+    font-family: 'Alatsi', sans-serif;
 }
