@@ -1,6 +1,6 @@
 # Rock, Paper, Scissors
 ### Minimal Styling.
-### A game for 1 players (vs CPU).
+### A game for 1 player (vs CPU).
 
 ### Tools used: 
 
