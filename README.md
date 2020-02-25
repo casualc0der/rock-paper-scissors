@@ -7,5 +7,5 @@
 * HTML
 * CSS (GRID) :black_square_button:
 * Vanilla JS
-* Preview [here](https://casualc0der.github.io/rock_paper_scissor_with_js/)
+* Preview [here](https://casualc0der.github.io/rock-paper-scissors/)
 
